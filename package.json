@@ -1,0 +1,54 @@
+{
+    "name": "collect-fifteen",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Collect-fifteen game",
+    "main": "index.js",
+    "scripts": {
+        "start": "webpack-dev-server --colors --hot --inline --progress --config \"./webpack.config.js\"",
+        "build": "webpack --mode production",
+        "test": "react-scripts test --env=jsdom",
+        "lint": "tslint --project ."
+    },
+    "author": {
+        "name": "Roman Varkuta",
+        "email": "roman.varkuta@gmail.com",
+        "url": "https://www.linkedin.com/in/roman-varkuta-431a9b169/"
+    },
+    "license": "ISC",
+    "dependencies": {
+        "@babel/core": "^7.7.4",
+        "@babel/plugin-transform-runtime": "^7.7.4",
+        "@babel/polyfill": "^7.7.0",
+        "@babel/preset-env": "^7.7.4",
+        "@babel/preset-react": "^7.7.4",
+        "bootstrap": "^4.3.1",
+        "core-js": "^3.4.5",
+        "intl": "^1.2.5",
+        "popper.js": "^1.16.0",
+        "raf": "^3.4.1",
+        "react": "^16.12.0",
+        "react-app-polyfill": "^1.0.4",
+        "react-dom": "^16.12.0",
+        "react-router-dom": "^5.1.2",
+        "react-scripts": "^3.2.0"
+    },
+    "devDependencies": {
+        "@types/node": "^12.12.12",
+        "@types/random-int": "^2.0.3",
+        "@types/react": "^16.9.13",
+        "@types/react-dom": "^16.9.4",
+        "awesome-typescript-loader": "^5.2.1",
+        "babel-loader": "^8.0.6",
+        "babel-plugin-module-resolver": "^3.2.0",
+        "css-loader": "^3.2.0",
+        "react-hot-loader": "^4.12.18",
+        "source-map-loader": "^0.2.4",
+        "style-loader": "^1.0.0",
+        "typescript": "^3.7.2",
+        "webpack": "^4.41.2",
+        "webpack-cli": "^3.3.10",
+        "webpack-dev-server": "^3.9.0",
+        "workbox-webpack-plugin": "^4.3.1"
+    }
+}

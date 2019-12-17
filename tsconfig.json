@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./frontend",
+        "jsx": "react",
+        "target": "esnext",
+        "module": "esnext",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "sourceMap": true,
+        "checkJs": false,
+        "typeRoots": [
+            "types"
+        ]
+    },
+    "include": [
+        "frontend/**/*"
+    ],
+    "exclude": [
+        "./node_modules/**/*"
+    ]
+}
