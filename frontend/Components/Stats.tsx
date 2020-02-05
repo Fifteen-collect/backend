@@ -24,8 +24,8 @@ export default function Stats({collapse, sizes, toggle}: StatsProps) {
     }
 
     const theme = React.useContext(ThemeContext);
-    let counts = Service.StatCountsStorage.getStatCounts(Service.StatCountsStorage.SOLVED_COUNTS_KEY);
-    let resets = Service.StatCountsStorage.getStatCounts(Service.StatCountsStorage.RESETS_COUNTS_KEY);
+    let counts = Service.getStatCounts(Service.SOLVED_COUNTS_KEY);
+    let resets = Service.getStatCounts(Service.RESETS_COUNTS_KEY);
 
     return <div className="modal d-block" onClick={toggle}>
         <div className="modal-dialog">

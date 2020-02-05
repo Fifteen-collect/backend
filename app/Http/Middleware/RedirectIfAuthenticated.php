@@ -3,22 +3,26 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\AuthManager;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation;
 
 class RedirectIfAuthenticated
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @param  string|null  $guard
-     * @return mixed
-     */
-    public function handle($request, Closure $next, $guard = null)
+    protected AuthManager $auth;
+
+    public function __construct(AuthManager $auth)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+        $this->auth = $auth;
+    }
+
+    public function handle(Request $request, Closure $next, ?string $guard = null): HttpFoundation\Response
+    {
+        if ($this->auth->guard($guard)->check()) {
+            return new JsonResponse([
+                'message' => 'Already authenticated',
+            ]);
         }
 
         return $next($request);

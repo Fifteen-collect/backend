@@ -23,7 +23,7 @@ export function Button(props: ResetButtonProps) {
     return <button
         className="btn btn-sm col-1 p-1 d-flex justify-content-center align-items-center"
         onClick={event => {
-            !solved && Service.StatCountsStorage.incrementStat(size, Service.StatCountsStorage.RESETS_COUNTS_KEY);
+            !solved && Service.incrementStat(size, Service.RESETS_COUNTS_KEY);
             props.resetHandler(event);
         }}
         style={{

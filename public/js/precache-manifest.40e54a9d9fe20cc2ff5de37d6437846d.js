@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3189fd49d92c682ffc13",
+    "revision": "c52b83f7abdbe2d7fb4f",
     "url": "./vendors.bundle.js"
   },
   {
-    "revision": "9f39faed2d189a683956",
+    "revision": "68871b0b9e88d86c089a",
     "url": "bundle.js"
   }
 ]);

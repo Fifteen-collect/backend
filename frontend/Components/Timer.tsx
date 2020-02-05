@@ -16,6 +16,7 @@ Timer.propTypes = {
     clicks: PropTypes.number,
 } as { [T in keyof TimerProps]: PropTypes.Validator<any> };
 
+// todo: optimize
 export function Timer({moves, startTime, clicks}: TimerProps) {
     const [tickId, setTickId] = React.useState(undefined);
     const [lastSolveTime, setLastSolveTime] = React.useState(0);
@@ -29,7 +30,7 @@ export function Timer({moves, startTime, clicks}: TimerProps) {
 
     React.useEffect(() => {
         setTickId(setInterval(() => {
-            setCurrentTime(game.run ? Date.now : 0);
+            setCurrentTime(game.run ? Date.now() : 0);
 
             if (!game.run && currentTime !== 0) {
                 setLastSolveTime(currentTime - startTime);
@@ -57,10 +58,10 @@ export function Timer({moves, startTime, clicks}: TimerProps) {
         {game.solved
             ? <>
                 <b className="noselect" style={{color: theme.timerTextColor}}>
-                mps: {calculateManipulationPerSecond(moves, lastSolveTime).toFixed(2)}
+                    mps: {calculateManipulationPerSecond(moves, lastSolveTime).toFixed(2)}
                 </b>
                 <b className="noselect" style={{color: theme.timerTextColor}}>
-                cps: {calculateManipulationPerSecond(clicks, lastSolveTime).toFixed(2)}
+                    cps: {calculateManipulationPerSecond(clicks, lastSolveTime).toFixed(2)}
                 </b>
             </>
             : <></>}

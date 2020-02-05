@@ -21,6 +21,7 @@ export interface SettingsProps {
     pinSizeToTop: (event: React.ChangeEvent) => void,
     currentThemeType: string,
     currentSize: number,
+    currentMethod: Method,
 }
 
 Settings.propTypes = {
@@ -36,6 +37,7 @@ Settings.propTypes = {
     pinSizeToTop: PropTypes.func,
     currentThemeType: PropTypes.string,
     currentSize: PropTypes.number,
+    currentMethod: PropTypes.string,
 } as { [T in keyof SettingsProps]: PropTypes.Validator<any> };
 
 export default function Settings(props: SettingsProps) {
@@ -43,7 +45,7 @@ export default function Settings(props: SettingsProps) {
         return <></>;
     }
 
-    const [currentMethod, setMethod] = React.useState(Method.DEFAULT);
+    const [currentMethod, setMethod] = React.useState(props.currentMethod);
     const currentTheme = React.useContext(ThemeContext);
 
     return <div className="modal d-block">

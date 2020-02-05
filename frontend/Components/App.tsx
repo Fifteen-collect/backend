@@ -5,7 +5,7 @@ import {Container} from "./Container";
 import Header from "./Header";
 import Settings from "./Settings";
 import * as Service from "./Service";
-import {Timer} from "./Header/Timer";
+import {Timer} from "Components/Timer";
 import Sizes from "./Settings/Sizes";
 
 import * as Helper from "Helpers";
@@ -37,7 +37,7 @@ export default function App() {
     const [startTime, setStartTime] = React.useState(0);
     const [buffer, setBuffer] = React.useState({x: 0, y: 0});
     const [solved, setSolved] = React.useState(false);
-    const [theme, setTheme] = React.useState(Service.ThemeStorage.getThemeFromStorage());
+    const [theme, setTheme] = React.useState(Service.getThemeFromStorage());
     const [relativeSize, setRelativeSize] = React.useState(windowSize / size);
 
     React.useEffect(() => {
@@ -121,13 +121,15 @@ export default function App() {
                 }
             }
 
-            !run && !solved && setStartTime(Date.now());
+            if (!run && !solved) {
+                setStartTime(Date.now());
+            }
             setMoves(movedBlocks);
 
             if (isMatrixSolved(matrix)) {
                 setRun(false);
                 setSolved(true);
-                Service.StatCountsStorage.incrementStat(size, Service.StatCountsStorage.SOLVED_COUNTS_KEY);
+                Service.incrementStat(size, Service.SOLVED_COUNTS_KEY);
 
                 return;
             }
@@ -148,6 +150,7 @@ export default function App() {
                     currentSize={size}
                     currentThemeType={theme}
                     toggle={collapseModal}
+                    currentMethod={method}
                     methods={availableMethods}
                     sizes={availableSizes}
                     themes={availableThemes}
@@ -156,7 +159,7 @@ export default function App() {
                     changeTheme={theme => {
                         setTheme(theme);
                         handleReset(size, theme);
-                        Service.ThemeStorage.saveThemeToStorage(theme);
+                        Service.saveThemeToStorage(theme);
                     }}
                     changeMethodHandler={method => {
                         matrix.forEach(row => {
