@@ -315,6 +315,7 @@ export const Light: BlockTheme = {
                 [Col.SIXTH]: Color.DARK,
                 [Col.SEVENTH]: Color.DARK,
                 [Col.EIGHT]: Color.DARK,
+                [Col.NINE]: Color.DARK,
             },
             [Row.THIRD]: {
                 [Col.FIRST]: Color.DARK,
@@ -416,6 +417,7 @@ export const Light: BlockTheme = {
                 [Col.SIXTH]: Color.DARK,
                 [Col.SEVENTH]: Color.DARK,
                 [Col.EIGHT]: Color.DARK,
+                [Col.NINE]: Color.DARK,
                 [Col.TEN]: Color.DARK,
             },
             [Row.THIRD]: {
