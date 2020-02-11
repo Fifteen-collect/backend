@@ -6,4 +6,7 @@ export enum Row {
     FIFTH,
     SIXTH,
     SEVENTH,
+    EIGHT ,
+    NINE,
+    TEN,
 }

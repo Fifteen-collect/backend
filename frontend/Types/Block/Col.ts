@@ -6,4 +6,7 @@ export enum Col {
     FIFTH,
     SIXTH,
     SEVENTH,
+    EIGHT,
+    NINE,
+    TEN,
 }

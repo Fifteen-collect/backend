@@ -140,7 +140,7 @@ export default function App() {
 
     return <ThemeContext.Provider value={ThemeColorScheme[theme]}>
         <GameContext.Provider value={{run: run, solved: solved, size: size}}>
-            <div className="main h-100" style={{backgroundColor: ThemeColorScheme[theme].main.background}}>
+            <div className="main h-100 d-flex flex-wrap align-content-center" style={{backgroundColor: ThemeColorScheme[theme].main.background}}>
                 <Header
                     sizes={availableSizes}
                     resetHandler={() => handleReset(size)}
@@ -174,13 +174,16 @@ export default function App() {
                     pinSizeToTop={() => pinSizeToTopToggle(!pinnedSizesToTop)}
                 />
                 {pinnedSizesToTop
-                    ? <div className="container-fluid">
+                    ? <div className="container-fluid fixed-top mt-5">
                         <Sizes
                             sizes={availableSizes}
                             size={size}
                             changeSize={size => {
                                 setSize(size);
                                 handleReset(size);
+                            }}
+                            style={{
+                                height: "80%"
                             }}
                         />
                     </div>

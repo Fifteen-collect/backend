@@ -62,7 +62,9 @@ export function Container(props: ContainerProps) {
                             backgroundColor: !solved
                                 ? block.Color
                                 : (block.Value !== 0 ? theme.block.solved : block.Color),
-                            fontSize: size === Size.X6 || Size.X7 ? "2.2rem" : "2.5rem",
+                            fontSize: size >= Size.X7
+                                ? (size !== Size.X10 ? '2.2rem' : '1.7rem')
+                                : '2.5rem',
                         }}
                     >
                         {block.Value !== 0 ? block.Value : ''}

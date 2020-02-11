@@ -24,7 +24,7 @@ class SpaController extends Controller
 
     public function token(): JsonResponse
     {
-        return new \Illuminate\Http\JsonResponse([
+        return new JsonResponse([
             'token' => csrf_token()
         ]);
     }
